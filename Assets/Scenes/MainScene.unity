@@ -266,6 +266,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6acf0fc8f3423a547bfe9a9384889aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardMapTester
+--- !u!114 &358756782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358756778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6c8d0598709e8469ab416287e0adcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BoardManager
+  fields:
+  - {fileID: 772361768}
+  - {fileID: 772361767}
+  - {fileID: 772361766}
+  - {fileID: 772361765}
+  - {fileID: 772361764}
+  - {fileID: 816043639}
+  - {fileID: 445623161}
+  - {fileID: 1922869767}
+  - {fileID: 1484344435}
+  - {fileID: 881049767}
+  - {fileID: 94219465}
+  - {fileID: 1629055705}
+  - {fileID: 1785777352}
+  - {fileID: 137835294}
+  - {fileID: 1676730905}
+  - {fileID: 2024700310}
+  - {fileID: 238912267}
+  - {fileID: 1780490648}
+  - {fileID: 1099677405}
+  - {fileID: 1099677404}
+  - {fileID: 1099677403}
+  - {fileID: 1099677402}
+  - {fileID: 1099677401}
+  - {fileID: 1633436896}
+  - {fileID: 1214593217}
+  - {fileID: 830673034}
+  - {fileID: 1440092231}
+  - {fileID: 2017076552}
+  - {fileID: 1452667226}
+  - {fileID: 980142940}
+  - {fileID: 1516172259}
+  - {fileID: 1731798815}
+  - {fileID: 15568868}
+  - {fileID: 1340466690}
+  - {fileID: 1804257817}
+  - {fileID: 2946045}
+  - {fileID: 423288749}
+  - {fileID: 2073819664}
+  - {fileID: 631889045}
+  - {fileID: 1976408151}
+  - {fileID: 340705719}
+  - {fileID: 656354926}
+  - {fileID: 1442895493}
+  - {fileID: 539502912}
+  - {fileID: 1332707747}
+  - {fileID: 751547559}
+  - {fileID: 1588927861}
+  - {fileID: 1847603463}
+  - {fileID: 117221226}
+  - {fileID: 503180858}
+  - {fileID: 344228898}
+  - {fileID: 1763717760}
+  - {fileID: 1121658943}
+  - {fileID: 766810256}
+  - {fileID: 265175780}
+  - {fileID: 608301606}
+  - {fileID: 564774204}
+  - {fileID: 21263246}
+  - {fileID: 497467482}
+  - {fileID: 2002667105}
+  - {fileID: 936567793}
 --- !u!114 &423288749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,6 +542,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -1282013622857848078, guid: 439e857701a9c224dbd8b49dd0f5cd17, type: 3}
       insertIndex: -1
       addedObject: {fileID: 358756780}
+    - targetCorrespondingSourceObject: {fileID: -1282013622857848078, guid: 439e857701a9c224dbd8b49dd0f5cd17, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 358756782}
     - targetCorrespondingSourceObject: {fileID: -1289385629404091038, guid: 439e857701a9c224dbd8b49dd0f5cd17, type: 3}
       insertIndex: -1
       addedObject: {fileID: 772361768}
