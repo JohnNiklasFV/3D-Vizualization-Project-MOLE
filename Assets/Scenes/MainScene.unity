@@ -132,6 +132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 36
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &15568868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 33
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &21263246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 58
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &94219465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,6 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 11
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &117221226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,6 +192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 49
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &137835294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +207,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 14
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &238912267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 17
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &265175780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 55
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &340705719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,6 +252,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 41
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &344228898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +267,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 51
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!1 &358756778 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1282013622857848078, guid: 439e857701a9c224dbd8b49dd0f5cd17, type: 3}
@@ -353,6 +373,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 37
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &445623161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,6 +388,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 7
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &497467482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,6 +403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 59
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &503180858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,6 +418,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 50
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &539502912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +433,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 44
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &564774204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,6 +448,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 57
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &608301606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,6 +463,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 56
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &631889045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,6 +478,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 39
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &656354926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,6 +493,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 42
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &751547559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,6 +508,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 46
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &766810256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +523,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 54
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!1001 &772361745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -832,6 +874,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 5
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &772361765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,6 +889,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 4
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &772361766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,6 +904,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 3
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &772361767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -871,6 +919,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 2
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &772361768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -884,6 +934,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 1
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &816043639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -897,6 +949,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 6
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &830673034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,6 +964,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 26
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &881049767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -923,6 +979,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 10
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &936567793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -936,6 +994,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 61
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &980142940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -949,6 +1009,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 30
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!1 &1099677358 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8604862539948254108, guid: 439e857701a9c224dbd8b49dd0f5cd17, type: 3}
@@ -1177,6 +1239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 23
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1099677402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1190,6 +1254,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 22
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1099677403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1203,6 +1269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 21
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1099677404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1216,6 +1284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 20
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1099677405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1229,6 +1299,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 19
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1121658943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1242,6 +1314,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 53
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!1 &1133185483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,6 +1408,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1140317703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1140317705}
+  - component: {fileID: 1140317704}
+  m_Layer: 0
+  m_Name: TileSelector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1140317704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140317703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8e8be867c4d4d4a9db4d1fbc8faa09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TileSelector
+  highlightMaterial: {fileID: 2100000, guid: ad889a0b56a156343b9a67c1e7e3da60, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 0af75b9e8dcb66348b96d5156313c701, type: 2}
+--- !u!4 &1140317705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140317703}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1214593217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1347,6 +1467,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 25
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1332707747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1360,6 +1482,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 45
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1340466690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1373,6 +1497,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 34
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1440092231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1386,6 +1512,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 27
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1442895493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1399,6 +1527,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 43
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1452667226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1412,6 +1542,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 29
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1484344435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1425,6 +1557,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 9
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1516172259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1438,6 +1572,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 31
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1588927861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1451,6 +1587,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 47
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1629055705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1464,6 +1602,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 12
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1633436896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1477,6 +1617,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 24
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1676730905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1490,6 +1632,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 15
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1731798815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1503,6 +1647,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 32
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1763717760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1516,6 +1662,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 52
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1780490648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1529,6 +1677,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 18
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1785777352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1542,6 +1692,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 13
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1804257817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1555,6 +1707,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 35
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1847603463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1568,6 +1722,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 48
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!1 &1863528148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1708,6 +1864,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 8
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &1976408151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1721,6 +1879,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 40
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &2002667105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1734,6 +1894,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 60
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &2017076552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1747,6 +1909,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 28
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &2024700310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1760,6 +1924,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 16
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!114 &2073819664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1773,6 +1939,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoardField
   id: 38
+  fieldType: 0
+  occupiedBy: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1780,3 +1948,4 @@ SceneRoots:
   - {fileID: 1133185486}
   - {fileID: 1863528151}
   - {fileID: 772361745}
+  - {fileID: 1140317705}

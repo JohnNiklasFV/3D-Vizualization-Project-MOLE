@@ -7,6 +7,20 @@ using UnityEditor;
 public class BoardField : MonoBehaviour
 {
     public int id;
+    public FieldType fieldType = FieldType.Normal;
+    public PlayerPiece occupiedBy = null;
+
+    public bool IsOccupied => occupiedBy != null;
+
+    public void PlacePiece(PlayerPiece piece)
+    {
+        occupiedBy = piece;
+    }
+
+    public void ClearPiece()
+    {
+        occupiedBy = null;
+    }
 
 #if UNITY_EDITOR
     void OnDrawGizmos()
@@ -17,6 +31,13 @@ public class BoardField : MonoBehaviour
         Vector3 labelPosition = transform.position + Vector3.up * 0.25f;
         Handles.color = Color.white;
         Handles.Label(labelPosition, $"ID: {id}");
+
+        // =========================
+        // DRAW FIELD TYPE LABEL
+        // =========================
+        Vector3 typePosition = transform.position + Vector3.up * 0.45f;
+        Handles.color = Color.cyan;
+        Handles.Label(typePosition, fieldType.ToString());
 
         // =========================
         // DRAW PATH CONNECTIONS
@@ -48,7 +69,7 @@ public class BoardField : MonoBehaviour
                 Gizmos.DrawLine(from, to);
                 Gizmos.DrawSphere(to, 0.04f);
 
-                from = to; // chain steps in order
+                from = to;
             }
         }
     }
