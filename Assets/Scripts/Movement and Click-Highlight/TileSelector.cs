@@ -24,6 +24,7 @@ public class TileSelector : MonoBehaviour
         selectedPiece = piece;
 
         List<BoardField> validDestinations = GetValidDestinations(piece, steps);
+        Debug.Log($"Valid destinations found: {validDestinations.Count}");
 
         if (validDestinations.Count == 0)
         {
@@ -97,13 +98,18 @@ public class TileSelector : MonoBehaviour
         return valid;
     }
 
+    private Dictionary<BoardField, Material> originalMaterials = new();
     private void HighlightField(BoardField field)
     {
         highlightedFields.Add(field);
 
         Renderer r = field.GetComponent<Renderer>();
         if (r != null && highlightMaterial != null)
+
+        {
+            originalMaterials[field] = r.material;
             r.material = highlightMaterial;
+        }
     }
 
     public void ClearHighlights()
@@ -111,11 +117,12 @@ public class TileSelector : MonoBehaviour
         foreach (BoardField field in highlightedFields)
         {
             Renderer r = field.GetComponent<Renderer>();
-            if (r != null && defaultMaterial != null)
-                r.material = defaultMaterial;
+            if (r != null && originalMaterials.ContainsKey(field))
+                r.material = originalMaterials[field];
         }
 
         highlightedFields.Clear();
+        originalMaterials.Clear();
         selectedPiece = null;
     }
 }
