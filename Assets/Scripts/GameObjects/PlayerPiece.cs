@@ -10,18 +10,7 @@ public class PlayerPiece : MonoBehaviour
     public bool IsBurrowed => state == PieceState.Burrowed;
     public bool IsFree => state == PieceState.Free;
 
-    void Start()
-    {
-        // Register this piece on its starting field
-        // Temporary until placement system is built
-        if (currentFieldId != -1)
-        {
-            BoardField startField = BoardManager.Instance.GetField(currentFieldId);
-            if (startField != null)
-                startField.PlacePiece(this);
-        }
-    }
-
+   
     public void MoveTo(BoardField targetField)
     {
         // Clear old field

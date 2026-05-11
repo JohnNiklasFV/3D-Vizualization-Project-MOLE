@@ -11,6 +11,7 @@ public class TurnManager : MonoBehaviour
     // Hardcoded for now — player 1 = Red, player 2 = Blue
     private List<PlayerColor> playerOrder = new();
     private int currentPlayerIndex = 0;
+    private Dictionary<PlayerColor, List<PlayerPiece>> playerPieces = new();
 
     // Turn state
     private bool hasDrawnToken = false;
@@ -28,27 +29,30 @@ public class TurnManager : MonoBehaviour
 
     void Start()
     {
-        InitializePlayers();
+        // TurnManager now waits for PlacementManager to call StartGame
+        // before initializing players and turns
     }
 
+
+        // Called by PlacementManager when all pieces are placed
+    public void StartGame(Dictionary<PlayerColor, List<PlayerPiece>> pieces)
+    {
+        // Store pieces per player for forced-out rule later
+        playerPieces = pieces;
+        InitializePlayers();
+    }
     private void InitializePlayers()
     {
         playerOrder.Clear();
-
-        // Hardcoded 2 players for now
-        // Expand this later for 3-4 players
         playerOrder.Add(PlayerColor.Red);
         playerOrder.Add(PlayerColor.Blue);
 
-        // Initialize tokens for each player
         foreach (PlayerColor color in playerOrder)
         {
             TokenManager.Instance.InitializePlayer(color);
         }
 
-        Debug.Log($"Game initialized with {playerOrder.Count} players");
-
-        // Start first turn
+        Debug.Log($"Game started with {playerOrder.Count} players");
         StartTurn();
     }
 

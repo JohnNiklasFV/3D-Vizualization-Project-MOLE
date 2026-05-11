@@ -47,7 +47,15 @@ public class BoardField : MonoBehaviour
     // Requires a Collider on this GameObject to work
     void OnMouseDown()
     {
-        Debug.Log($"Field {id} clicked");
+        // During placement phase — place a piece
+        if (PlacementManager.Instance != null && 
+            PlacementManager.Instance.IsPlacementPhase)
+        {
+            PlacementManager.Instance.TryPlacePiece(this);
+            return;
+        }
+
+        // During game phase — select destination
         TileSelector.Instance.SelectDestination(this);
     }
 
