@@ -132,9 +132,9 @@ public class TokenUIManager : MonoBehaviour
         isAnimating = false;
 
         // Notify TurnManager that a token was drawn
-        //if (TurnManager.Instance != null)
-        //    TurnManager.Instance.OnTokenDrawn(value);
-        //else
+        if (TurnManager.Instance != null)
+            TurnManager.Instance.OnTokenDrawn(value);
+            else
             Debug.Log($"Token drawn: {value} — TurnManager not yet built");
     }
 

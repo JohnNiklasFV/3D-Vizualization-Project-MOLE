@@ -10,27 +10,43 @@ public class PlayerPiece : MonoBehaviour
     public bool IsBurrowed => state == PieceState.Burrowed;
     public bool IsFree => state == PieceState.Free;
 
+    void Start()
+    {
+        // Register this piece on its starting field
+        // Temporary until placement system is built
+        if (currentFieldId != -1)
+        {
+            BoardField startField = BoardManager.Instance.GetField(currentFieldId);
+            if (startField != null)
+                startField.PlacePiece(this);
+        }
+    }
+
     public void MoveTo(BoardField targetField)
     {
         // Clear old field
         if (currentFieldId != -1)
         {
             BoardField oldField = BoardManager.Instance.GetField(currentFieldId);
+            
             if (oldField != null)
                 oldField.ClearPiece();
         }
 
         // Update state based on destination field type
+        Debug.Log("Updating state...");
         if (targetField.fieldType == FieldType.Burrow)
             state = PieceState.Burrowed;
         else
             state = PieceState.Free;
 
         // Move to new field
+        Debug.Log("Setting currentFieldId...");
         currentFieldId = targetField.id;
         targetField.PlacePiece(this);
 
         // Snap to position
+        Debug.Log($"Snapping to position: {targetField.transform.position}");
         transform.position = targetField.transform.position;
     }
 

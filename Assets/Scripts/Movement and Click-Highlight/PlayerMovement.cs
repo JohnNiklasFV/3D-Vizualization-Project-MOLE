@@ -15,8 +15,19 @@ public class PlayerMovement : MonoBehaviour
         if (piece == null) return;
         if (!piece.IsSelectable) return;
 
-        // Hardcoded for testing — change this number to test different step counts
-        int testSteps = 3;
-        TileSelector.Instance.SelectPiece(piece, testSteps);
+        if (!TurnManager.Instance.IsCurrentPlayer(piece.playerColor))
+        {
+            Debug.Log("Not your turn!");
+            return;
+        }
+
+        if (!TurnManager.Instance.CanSelectPiece())
+        {
+            Debug.Log("Draw a token first!");
+            return;
+        }
+
+        int steps = TurnManager.Instance.CurrentSteps;
+        TileSelector.Instance.SelectPiece(piece, steps);
     }
 }

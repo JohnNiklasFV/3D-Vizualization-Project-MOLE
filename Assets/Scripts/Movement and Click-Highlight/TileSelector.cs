@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+using System.Collections;
 public class TileSelector : MonoBehaviour
 {
     public static TileSelector Instance;
@@ -11,6 +11,7 @@ public class TileSelector : MonoBehaviour
 
     private List<BoardField> highlightedFields = new();
     private PlayerPiece selectedPiece = null;
+    private bool isProcessingMove = false;
 
     void Awake()
     {
@@ -20,6 +21,7 @@ public class TileSelector : MonoBehaviour
     // Called when a player clicks a piece
     public void SelectPiece(PlayerPiece piece, int steps)
     {
+        if (isProcessingMove) return;
         ClearHighlights();
         selectedPiece = piece;
 
@@ -41,13 +43,27 @@ public class TileSelector : MonoBehaviour
 
     // Called when a player clicks a highlighted field
     public void SelectDestination(BoardField field)
+    
     {
         if (selectedPiece == null) return;
         if (!highlightedFields.Contains(field)) return;
 
-        ClearHighlights();
-        selectedPiece.MoveTo(field);
+        StartCoroutine(ProcessMove(field, selectedPiece));
         selectedPiece = null;
+    }
+
+    private IEnumerator ProcessMove(BoardField field, PlayerPiece piece)
+    {
+        isProcessingMove = true;
+
+        ClearHighlights();
+        piece.MoveTo(field);
+
+        if (TurnManager.Instance != null)
+            TurnManager.Instance.OnMoveMade(field);
+
+        yield return new WaitForSeconds(0.1f);
+        isProcessingMove = false;
     }
 
     public List<BoardField> GetValidDestinations(PlayerPiece piece, int steps)
@@ -99,13 +115,13 @@ public class TileSelector : MonoBehaviour
     }
 
     private Dictionary<BoardField, Material> originalMaterials = new();
+
     private void HighlightField(BoardField field)
     {
         highlightedFields.Add(field);
 
         Renderer r = field.GetComponent<Renderer>();
         if (r != null && highlightMaterial != null)
-
         {
             originalMaterials[field] = r.material;
             r.material = highlightMaterial;
