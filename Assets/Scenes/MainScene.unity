@@ -296,8 +296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2934e879e1856843b105cbafffe03e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TokenUIManager
-  tokenPanel: {fileID: 91827952}
-  cardPrefab: {fileID: 3906852100856379688, guid: 0c336d20b5b9a3648898a66edaf16f40, type: 3}
+  tokenPanel: {fileID: 0}
+  cardPrefab: {fileID: 0}
   cardBackColor: {r: 0.2, g: 0.2, b: 0.8, a: 1}
   cardFrontColor: {r: 1, g: 1, b: 1, a: 1}
   cardUsedColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
@@ -4402,12 +4402,12 @@ SceneRoots:
   - {fileID: 1133185486}
   - {fileID: 1863528151}
   - {fileID: 772361745}
-  - {fileID: 923340229}
-  - {fileID: 62346694}
   - {fileID: 1140317705}
-  - {fileID: 50578447}
+  - {fileID: 923340229}
   - {fileID: 620748169}
   - {fileID: 1281144899}
   - {fileID: 895613158}
   - {fileID: 1109832041}
+  - {fileID: 50578447}
   - {fileID: 690237633}
+  - {fileID: 62346694}
