@@ -2899,7 +2899,10 @@ GameObject:
   - component: {fileID: 1133185485}
   - component: {fileID: 1133185484}
   - component: {fileID: 1133185487}
+<<<<<<< HEAD
   - component: {fileID: 1133185488}
+=======
+>>>>>>> 8490e9ee2037d1c32ecb356529193dc0892e6626
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2980,7 +2983,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
   m_LocalEulerAnglesHint: {x: 94.14499, y: 0, z: 0}
+=======
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> 8490e9ee2037d1c32ecb356529193dc0892e6626
 --- !u!114 &1133185487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3025,6 +3032,7 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+<<<<<<< HEAD
 --- !u!114 &1133185488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3037,6 +3045,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d87dfcb71aec64a9cf8a3d9373e56e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickDebugger
+=======
+>>>>>>> 8490e9ee2037d1c32ecb356529193dc0892e6626
 --- !u!1 &1140317703
 GameObject:
   m_ObjectHideFlags: 0
