@@ -29,6 +29,8 @@ public class PlayerPiece : MonoBehaviour
         else
             state = PieceState.Free;
 
+        Debug.Log($"Piece state set to: {state} on field {targetField.id} (FieldType: {targetField.fieldType})");
+
         // Move to new field
         Debug.Log("Setting currentFieldId...");
         currentFieldId = targetField.id;

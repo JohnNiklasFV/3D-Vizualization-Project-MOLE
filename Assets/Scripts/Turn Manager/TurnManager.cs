@@ -110,7 +110,25 @@ public class TurnManager : MonoBehaviour
         // Disable cards after move
         TokenUIManager.Instance.DisableAllCards();
 
-        // Check win/layer transition conditions here later
+        // Check win/layer transition
+        if (LayerTransitionManager.Instance != null)
+        {
+            if (LayerTransitionManager.Instance.AllBurrowsFilled())
+            {
+                if (LayerTransitionManager.Instance.CurrentLayer >= 4)
+                {
+                    Debug.Log("GAME OVER — final burrow filled!");
+                    if (WinManager.Instance != null)
+                        WinManager.Instance.TriggerWin(CurrentPlayerColor);
+                    return;
+                }
+                else
+                {
+                    LayerTransitionManager.Instance.TransitionToNextLayer();
+                    return;
+                }
+            }
+        }
 
         // End turn after a short delay
         Invoke(nameof(EndTurn), 1f);
@@ -128,5 +146,31 @@ public class TurnManager : MonoBehaviour
     public bool CanSelectPiece()
     {
         return hasDrawnToken && !hasMoved;
+    }
+
+    public void OnLayerTransition(int newLayer)
+    {
+        Debug.Log($"Layer transition to {newLayer} — checking remaining players");
+
+        // Check if any player has been completely eliminated
+        foreach (var kvp in playerPieces)
+        {
+            bool hasAnyPiece = false;
+            foreach (PlayerPiece piece in kvp.Value)
+            {
+                if (piece != null && piece.state != PieceState.Eliminated)
+                {
+                    hasAnyPiece = true;
+                    break;
+                }
+            }
+
+            if (!hasAnyPiece)
+                Debug.Log($"{kvp.Key} has been eliminated from the game!");
+        }
+
+        // Continue with next turn
+        currentPlayerIndex = 0;
+        StartTurn();
     }
 }
