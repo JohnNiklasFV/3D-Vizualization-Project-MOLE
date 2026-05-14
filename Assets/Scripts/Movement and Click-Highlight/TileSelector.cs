@@ -60,7 +60,7 @@ public class TileSelector : MonoBehaviour
         piece.MoveTo(field);
 
         if (TurnManager.Instance != null)
-            TurnManager.Instance.OnMoveMade(field);
+            TurnManager.Instance.OnMoveMade(field, piece); // pass piece too
 
         yield return new WaitForSeconds(0.1f);
         isProcessingMove = false;
@@ -120,21 +120,17 @@ public class TileSelector : MonoBehaviour
     {
         highlightedFields.Add(field);
 
-        Renderer r = field.GetComponent<Renderer>();
-        if (r != null && highlightMaterial != null)
-        {
-            originalMaterials[field] = r.material;
-            r.material = highlightMaterial;
-        }
+        // Use grid renderer dot highlighting
+        if (BoardGridRenderer.Instance != null)
+            BoardGridRenderer.Instance.HighlightField(field.id);
     }
 
     public void ClearHighlights()
     {
         foreach (BoardField field in highlightedFields)
         {
-            Renderer r = field.GetComponent<Renderer>();
-            if (r != null && originalMaterials.ContainsKey(field))
-                r.material = originalMaterials[field];
+            if (BoardGridRenderer.Instance != null)
+                BoardGridRenderer.Instance.ClearHighlight(field.id);
         }
 
         highlightedFields.Clear();

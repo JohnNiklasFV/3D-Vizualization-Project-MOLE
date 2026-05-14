@@ -27,6 +27,14 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        // If dot bonus is active, only allow the dot piece to move
+        if (TurnManager.Instance.DotBonusPiece != null && 
+            TurnManager.Instance.DotBonusPiece != piece)
+        {
+            Debug.Log("You must move the piece that landed on the dot!");
+            return;
+        }
+
         int steps = TurnManager.Instance.CurrentSteps;
         TileSelector.Instance.SelectPiece(piece, steps);
     }

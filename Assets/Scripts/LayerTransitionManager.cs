@@ -136,6 +136,10 @@ public class LayerTransitionManager : MonoBehaviour
         // Update field types for new layer
         ApplyFieldTypes(currentLayer);
 
+        // Update dot visuals for new layer
+        if (BoardGridRenderer.Instance != null)
+            BoardGridRenderer.Instance.UpdateDotsForLayer(dotIdsByLayer[currentLayer]);
+
         // Reposition burrowed pieces to their new field positions
         RepositionBurrowedPieces();
 

@@ -12,12 +12,16 @@ public class TurnManager : MonoBehaviour
     private List<PlayerColor> playerOrder = new();
     private int currentPlayerIndex = 0;
     private Dictionary<PlayerColor, List<PlayerPiece>> playerPieces = new();
+    private PlayerPiece dotBonusPiece = null;
 
     // Turn state
     private bool hasDrawnToken = false;
     private int currentSteps = -1;
     private bool hasMoved = false;
+    
 
+
+    public PlayerPiece DotBonusPiece => dotBonusPiece;
     public bool HasDrawnToken => hasDrawnToken;
     public int CurrentSteps => currentSteps;
     public PlayerColor CurrentPlayerColor => playerOrder[currentPlayerIndex];
@@ -89,7 +93,7 @@ public class TurnManager : MonoBehaviour
     }
 
     // Called by TileSelector after a move is confirmed
-    public void OnMoveMade(BoardField destination)
+    public void OnMoveMade(BoardField destination, PlayerPiece piece)
     {
         hasMoved = true;
 
@@ -101,11 +105,15 @@ public class TurnManager : MonoBehaviour
             {
                 Debug.Log($"{CurrentPlayerColor} landed on a dot — draw another token!");
                 hasDrawnToken = false;
+                hasMoved = false;
                 currentSteps = -1;
+                dotBonusPiece = piece; // store the piece that landed on double dot
                 TokenUIManager.Instance.ShowTokensForPlayer(CurrentPlayerColor);
                 return;
             }
         }
+
+        dotBonusPiece = null;
 
         // Disable cards after move
         TokenUIManager.Instance.DisableAllCards();

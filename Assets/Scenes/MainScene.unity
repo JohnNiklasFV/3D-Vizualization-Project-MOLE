@@ -1026,6 +1026,11 @@ MonoBehaviour:
   gridColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   lineWidth: 0.02
   heightOffset: 0.05
+  normalDotSize: 0.08
+  doubleDotSize: 0.18
+  normalDotColor: {r: 1, g: 1, b: 1, a: 1}
+  doubleDotColor: {r: 1, g: 0.5, b: 0, a: 1}
+  highlightDotColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!4 &619254113
 Transform:
   m_ObjectHideFlags: 0
