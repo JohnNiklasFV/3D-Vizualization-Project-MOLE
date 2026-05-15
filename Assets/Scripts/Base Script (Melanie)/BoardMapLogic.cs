@@ -644,7 +644,7 @@ public static class BoardMap
             {
                 new int[] { 51, 44, 36, 27 },
                 new int[] { 52, 46, 39, 31 },
-                new int[] { 58, 58, 59, 60 },
+                new int[] { 58, 59, 60, 61 },
             }
         },
         {

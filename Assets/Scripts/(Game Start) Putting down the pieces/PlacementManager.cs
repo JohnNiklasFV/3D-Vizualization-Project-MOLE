@@ -36,6 +36,11 @@ public class PlacementManager : MonoBehaviour
 
     void Start()
     {
+        // Read player count from main menu selection
+        // Defaults to 2 if PlayerPrefs not set
+        playerCount = PlayerPrefs.GetInt("PlayerCount", 2);
+        Debug.Log($"Player count loaded: {playerCount}");
+
         InitializePlacement();
     }
 
@@ -45,12 +50,18 @@ public class PlacementManager : MonoBehaviour
         if (TokenUIManager.Instance != null)
             TokenUIManager.Instance.gameObject.SetActive(false);
 
-        // Build player order based on count
+        // Build player order based on saved color choices
         playerOrder.Clear();
-        playerOrder.Add(PlayerColor.Red);
-        if (playerCount >= 2) playerOrder.Add(PlayerColor.Blue);
-        if (playerCount >= 3) playerOrder.Add(PlayerColor.Green);
-        if (playerCount >= 4) playerOrder.Add(PlayerColor.Yellow);
+
+        for (int i = 1; i <= playerCount; i++)
+        {
+            // Read each player's color from PlayerPrefs
+            // Default order: Red, Blue, Green, Yellow if not set
+            int colorIndex = PlayerPrefs.GetInt($"Player{i}Color", i - 1);
+            PlayerColor color = (PlayerColor)colorIndex;
+            playerOrder.Add(color);
+            Debug.Log($"Player {i} color: {color}");
+        }
 
         // Calculate pieces per player
         int piecesPerPlayer = GetPiecesPerPlayer(playerCount);
@@ -64,6 +75,12 @@ public class PlacementManager : MonoBehaviour
 
         Debug.Log($"Placement phase started — {playerCount} players, {piecesPerPlayer} pieces each");
         Debug.Log($"{CurrentPlacingPlayer}'s turn to place a piece");
+
+        if (TurnIndicatorUI.Instance != null)
+            TurnIndicatorUI.Instance.ShowPlacementText(
+                CurrentPlacingPlayer,
+                piecesLeftToPlace[CurrentPlacingPlayer]
+            );
     }
 
     private int GetPiecesPerPlayer(int count)
@@ -130,6 +147,16 @@ public class PlacementManager : MonoBehaviour
             currentPlayerIndex = (currentPlayerIndex + 1) % playerOrder.Count;
             safetyCounter++;
             if (safetyCounter > playerOrder.Count) break;
+        }
+
+        // Add to end of TryPlacePiece after the currentPlayerIndex update
+        if (TurnIndicatorUI.Instance != null)
+        {
+            if (!AllPiecesPlaced())
+                TurnIndicatorUI.Instance.ShowPlacementText(
+                    CurrentPlacingPlayer,
+                    piecesLeftToPlace[CurrentPlacingPlayer]
+                );
         }
 
         Debug.Log($"{CurrentPlacingPlayer}'s turn to place a piece — {piecesLeftToPlace[CurrentPlacingPlayer]} remaining");
@@ -199,7 +226,7 @@ public class PlacementManager : MonoBehaviour
 
         // Pass spawned pieces to TurnManager
         if (TurnManager.Instance != null)
-            TurnManager.Instance.StartGame(spawnedPieces);
+            TurnManager.Instance.StartGame(spawnedPieces, playerCount);
     }
 
     // Returns all pieces for a specific player

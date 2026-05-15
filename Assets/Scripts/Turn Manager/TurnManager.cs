@@ -39,17 +39,20 @@ public class TurnManager : MonoBehaviour
 
 
         // Called by PlacementManager when all pieces are placed
-    public void StartGame(Dictionary<PlayerColor, List<PlayerPiece>> pieces)
+    public void StartGame(Dictionary<PlayerColor, List<PlayerPiece>> pieces, int count)
     {
         // Store pieces per player for forced-out rule later
         playerPieces = pieces;
+        playerCount = count;
         InitializePlayers();
     }
     private void InitializePlayers()
     {
         playerOrder.Clear();
         playerOrder.Add(PlayerColor.Red);
-        playerOrder.Add(PlayerColor.Blue);
+        if (playerCount >= 2) playerOrder.Add(PlayerColor.Blue);
+        if (playerCount >= 3) playerOrder.Add(PlayerColor.Green);
+        if (playerCount >= 4) playerOrder.Add(PlayerColor.Yellow);
 
         foreach (PlayerColor color in playerOrder)
         {
@@ -74,6 +77,10 @@ public class TurnManager : MonoBehaviour
 
         // Show tokens for current player
         TokenUIManager.Instance.ShowTokensForPlayer(CurrentPlayerColor);
+
+        // Add to end of StartTurn
+        if (TurnIndicatorUI.Instance != null)
+        TurnIndicatorUI.Instance.ShowTurnText(CurrentPlayerColor);
     }
 
     // Called by TokenUIManager when a card is flipped
@@ -83,7 +90,23 @@ public class TurnManager : MonoBehaviour
         currentSteps = steps;
 
         Debug.Log($"{CurrentPlayerColor} drew {steps} — select a piece to move");
+
+        // If dot bonus is active, check if the dot piece can actually make the move
+        // If not, skip the bonus turn automatically
+        if (dotBonusPiece != null)
+        {
+            List<BoardField> validMoves = TileSelector.Instance.GetValidDestinations(dotBonusPiece, steps);
+            if (validMoves.Count == 0)
+            {
+                Debug.Log($"Dot bonus piece cannot make the move — skipping bonus turn");
+                dotBonusPiece = null;
+                TokenUIManager.Instance.DisableAllCards();
+                Invoke(nameof(EndTurn), 1f);
+            }
+        }
     }
+
+    
 
     // Called by PlayerMovement when a piece is selected
     // Returns true if the piece belongs to the current player
@@ -146,8 +169,47 @@ public class TurnManager : MonoBehaviour
     {
         // Move to next player
         currentPlayerIndex = (currentPlayerIndex + 1) % playerOrder.Count;
+
+            // Skip players with no remaining pieces
+        int safetyCounter = 0;
+        while (!HasAnyPieces(CurrentPlayerColor))
+        {
+            Debug.Log($"{CurrentPlayerColor} has no pieces — skipping turn");
+            currentPlayerIndex = (currentPlayerIndex + 1) % playerOrder.Count;
+            safetyCounter++;
+
+            // If we've gone through all players, someone wins
+            if (safetyCounter >= playerOrder.Count)
+            {
+                // Find last remaining player
+                foreach (PlayerColor color in playerOrder)
+                {
+                    if (HasAnyPieces(color))
+                    {
+                        Debug.Log($"{color} is the last player standing — they win!");
+                        if (WinManager.Instance != null)
+                            WinManager.Instance.TriggerWin(color);
+                        return;
+                    }
+                }
+                return;
+            }
+        }
+
         Debug.Log($"Turn ended — next up: {CurrentPlayerColor}");
         StartTurn();
+    }
+
+    private bool HasAnyPieces(PlayerColor color)
+    {
+        if (!playerPieces.ContainsKey(color)) return false;
+
+        foreach (PlayerPiece piece in playerPieces[color])
+        {
+            if (piece != null && piece.state != PieceState.Eliminated)
+                return true;
+        }
+        return false;
     }
 
     // Called by PlayerMovement to check if moving is allowed
@@ -160,21 +222,30 @@ public class TurnManager : MonoBehaviour
     {
         Debug.Log($"Layer transition to {newLayer} — checking remaining players");
 
-        // Check if any player has been completely eliminated
+        PlayerColor? lastPlayer = null;
+        int activePlayers = 0;
+
         foreach (var kvp in playerPieces)
         {
-            bool hasAnyPiece = false;
-            foreach (PlayerPiece piece in kvp.Value)
+            bool hasAnyPiece = HasAnyPieces(kvp.Key);
+            if (hasAnyPiece)
             {
-                if (piece != null && piece.state != PieceState.Eliminated)
-                {
-                    hasAnyPiece = true;
-                    break;
-                }
+                activePlayers++;
+                lastPlayer = kvp.Key;
             }
-
-            if (!hasAnyPiece)
+            else
+            {
                 Debug.Log($"{kvp.Key} has been eliminated from the game!");
+            }
+        }
+
+        // If only one player remains they win immediately
+        if (activePlayers == 1 && lastPlayer.HasValue)
+        {
+            Debug.Log($"{lastPlayer.Value} is the last player standing — they win!");
+            if (WinManager.Instance != null)
+                WinManager.Instance.TriggerWin(lastPlayer.Value);
+            return;
         }
 
         // Continue with next turn

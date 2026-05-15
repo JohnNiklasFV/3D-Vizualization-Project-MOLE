@@ -60,6 +60,10 @@ public class WinManager : MonoBehaviour
 
         // Stop the game
         Time.timeScale = 0f;
+        
+        // Add to TriggerWin
+        if (TurnIndicatorUI.Instance != null)
+        TurnIndicatorUI.Instance.ClearText();
     }
 
     // =========================
@@ -70,10 +74,6 @@ public class WinManager : MonoBehaviour
     {
         // Resume time before loading new scene
         Time.timeScale = 1f;
-
-        // TODO: Replace "MainMenu" with the exact name of your main menu scene
-        // The other person working on the main menu needs to make sure
-        // the scene name matches exactly what is set here
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadSceneAsync(0); // Main Menu scene
     }
 }

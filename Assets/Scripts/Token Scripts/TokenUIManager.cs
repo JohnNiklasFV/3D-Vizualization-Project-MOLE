@@ -16,6 +16,7 @@ public class TokenUIManager : MonoBehaviour
     public Color cardBackColor = new Color(0.2f, 0.2f, 0.8f);
     public Color cardFrontColor = new Color(1f, 1f, 1f);
     public Color cardUsedColor = new Color(0.3f, 0.3f, 0.3f);
+    public Sprite cardBackSprite;
 
     private List<GameObject> cardObjects = new();
     private List<bool> cardRevealed = new();
@@ -25,6 +26,19 @@ public class TokenUIManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+    }
+
+
+    private Color GetPlayerColor(PlayerColor color)
+    {
+        switch (color)
+        {
+            case PlayerColor.Red: return new Color(0.8f, 0.1f, 0.1f);
+            case PlayerColor.Blue: return new Color(0.1f, 0.1f, 0.8f);
+            case PlayerColor.Green: return new Color(0.1f, 0.6f, 0.1f);
+            case PlayerColor.Yellow: return new Color(0.9f, 0.8f, 0.1f);
+            default: return Color.white;
+        }
     }
 
     // Call this at the start of a player's turn to show their cards
@@ -44,15 +58,28 @@ public class TokenUIManager : MonoBehaviour
             cardObjects.Add(card);
             cardRevealed.Add(false);
 
-            // Set card back appearance
+            // Set root card image to transparent so background shows through
             Image cardImage = card.GetComponent<Image>();
             if (cardImage != null)
-                cardImage.color = cardBackColor;
+                cardImage.color = Color.clear;
 
-            // Set question mark text on front
+            // Set background color to match current player
+            Image bgImage = card.transform.Find("CardBackground")?.GetComponent<Image>();
+            if (bgImage != null)
+                bgImage.color = GetPlayerColor(color);
+
+            // Set logo sprite on Logo child
+            Image logoImage = card.transform.Find("Logo")?.GetComponent<Image>();
+            if (logoImage != null)
+            {
+                logoImage.sprite = cardBackSprite;
+                logoImage.color = Color.white;
+            }
+
+            // Set text empty — number shows after flip
             TMP_Text cardText = card.GetComponentInChildren<TMP_Text>();
             if (cardText != null)
-                cardText.text = "?";
+                cardText.text = "";
 
             // Add click listener
             Button cardButton = card.GetComponent<Button>();
@@ -108,7 +135,22 @@ public class TokenUIManager : MonoBehaviour
 
         // Swap to front appearance at midpoint
         if (cardImage != null)
+        {
+            // Remove sprite and show plain front color
+            cardImage.sprite = null;
             cardImage.color = cardFrontColor;
+        }
+
+        // Hide logo and background on flip so front looks clean
+        Image bgImage = card.transform.Find("CardBackground")?.GetComponent<Image>();
+        if (bgImage != null)
+            bgImage.gameObject.SetActive(false);
+
+        Image logoImage = card.transform.Find("Logo")?.GetComponent<Image>();
+        if (logoImage != null)
+            logoImage.gameObject.SetActive(false);
+
+        // Show the number
         if (cardText != null)
             cardText.text = value.ToString();
 
@@ -134,7 +176,7 @@ public class TokenUIManager : MonoBehaviour
         // Notify TurnManager that a token was drawn
         if (TurnManager.Instance != null)
             TurnManager.Instance.OnTokenDrawn(value);
-            else
+        else
             Debug.Log($"Token drawn: {value} — TurnManager not yet built");
     }
 
