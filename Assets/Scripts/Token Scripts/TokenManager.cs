@@ -85,7 +85,7 @@ public class TokenManager : MonoBehaviour
         return currentDrawnToken;
     }
 
-    // Called when a player lands on a dot
+    // Called when a player lands on a double dot
     // Returns true if the bonus draw is allowed
     public bool TryUseDotBonus(PlayerColor color)
     {
@@ -103,7 +103,7 @@ public class TokenManager : MonoBehaviour
 
     private bool IsDrawingBonusToken()
     {
-        // True if dot bonus was used and we are allowing a second draw
+        // True if double dot bonus was used and we are allowing a second draw
         return hasUsedDotThisTurn && !hasDrawnThisTurn;
     }
 

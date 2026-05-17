@@ -24,11 +24,11 @@ public class WinManager : MonoBehaviour
 
     void Start()
     {
-        // Make sure win panel is hidden at game start
+        // Makes sure win panel is hidden at game start
         if (winPanel != null)
             winPanel.SetActive(false);
 
-        // Hook up restart button
+        // Hooks up restart button
         if (restartButton != null)
             restartButton.onClick.AddListener(OnRestartClicked);
     }

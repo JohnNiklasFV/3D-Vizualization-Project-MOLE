@@ -120,7 +120,7 @@ public class TurnManager : MonoBehaviour
     {
         hasMoved = true;
 
-        // Check if landed on a dot
+        // Check if landed on a double dot
         if (destination.fieldType == FieldType.Dot)
         {
             bool bonusGranted = TokenManager.Instance.TryUseDotBonus(CurrentPlayerColor);

@@ -149,7 +149,7 @@ public class PlacementManager : MonoBehaviour
             if (safetyCounter > playerOrder.Count) break;
         }
 
-        // Add to end of TryPlacePiece after the currentPlayerIndex update
+        
         if (TurnIndicatorUI.Instance != null)
         {
             if (!AllPiecesPlaced())
