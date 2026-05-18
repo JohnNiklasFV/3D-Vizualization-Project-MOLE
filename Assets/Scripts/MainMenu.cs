@@ -32,7 +32,10 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("PlayerCount", 2);
         SceneManager.LoadSceneAsync(1);
     }
-
+       public void BackToMainMenu()
+    {
+        SceneManager.LoadSceneAsync(0);
+    }
     public void QuitGame()
     {
         Application.Quit();
