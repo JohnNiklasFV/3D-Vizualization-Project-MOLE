@@ -103,6 +103,33 @@ public class TurnManager : MonoBehaviour
                 TokenUIManager.Instance.DisableAllCards();
                 Invoke(nameof(EndTurn), 1f);
             }
+            return;
+        }
+
+        // Check if ANY of the current player's pieces can make the move
+        bool anyPieceCanMove = false;
+
+        if (playerPieces.ContainsKey(CurrentPlayerColor))
+        {
+            foreach (PlayerPiece piece in playerPieces[CurrentPlayerColor])
+            {
+                if (piece == null) continue;
+                if (piece.state == PieceState.Eliminated) continue;
+
+                List<BoardField> validMoves = TileSelector.Instance.GetValidDestinations(piece, steps);
+                if (validMoves.Count > 0)
+                {
+                    anyPieceCanMove = true;
+                    break;
+                }
+            }
+        }
+
+        if (!anyPieceCanMove)
+        {
+            Debug.Log($"{CurrentPlayerColor} has no pieces that can move {steps} steps — skipping turn");
+            TokenUIManager.Instance.DisableAllCards();
+            Invoke(nameof(EndTurn), 1f);
         }
     }
 
@@ -248,8 +275,20 @@ public class TurnManager : MonoBehaviour
             return;
         }
 
+        // Move to NEXT player after whoever triggered the transition
+        // instead of always resetting to player 0
+        currentPlayerIndex = (currentPlayerIndex + 1) % playerOrder.Count;
+
+        // Skip eliminated players
+        int safetyCounter = 0;
+        while (!HasAnyPieces(CurrentPlayerColor))
+        {
+            currentPlayerIndex = (currentPlayerIndex + 1) % playerOrder.Count;
+            safetyCounter++;
+            if (safetyCounter >= playerOrder.Count) break;
+        }
+
         // Continue with next turn
-        currentPlayerIndex = 0;
         StartTurn();
     }
 }
